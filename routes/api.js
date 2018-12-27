@@ -1,23 +1,27 @@
 /*
-*
-*
-*       Complete the API routing below
-*
-*
-*/
+ *
+ *
+ *       Complete the API routing below
+ *
+ *
+ */
 
-'use strict';
+"use strict";
 
-var expect = require('chai').expect;
-var MongoClient = require('mongodb');
+var expect = require("chai").expect;
+var StockHandler = require("../controllers/stockHandler.js");
+var request = require("request");
 
-const CONNECTION_STRING = process.env.DB; //MongoClient.connect(CONNECTION_STRING, function(err, db) {});
+module.exports = function(app) {
+  var stockPrices = new StockHandler();
 
-module.exports = function (app) {
+  app.route("/api/stock-prices").get(function(req, res) {
+    const stock = req.query.stock;
 
-  app.route('/api/stock-prices')
-    .get(function (req, res){
-      
-    });
-    
+    function getPrice(obj, data) {
+      console.log(obj, data);
+    }
+
+    stockPrices.getData(stock, getPrice);
+  });
 };
