@@ -5,12 +5,12 @@
  *
  *
  */
-var MongoClient = require("mongodb");
+var MongoClient = require("mongodb").MongoClient;
 const CONNECTION_STRING = process.env.DB;
 var request = require("request");
 
 function StockHandler() {
-  this.getData = function(stock, callback) {
+  this.getPrice = function(stock, callback) {
     //var result;
     request(`https://api.iextrading.com/1.0/stock/${stock}/price`, function(
       error,
@@ -18,11 +18,7 @@ function StockHandler() {
       body
     ) {
       if (!error && response.statusCode == 200) {
-        //var result = JSON.parse(body.substring(4));
-        callback(
-          "stockData",
-          body /*{stock: result[0].t ,price: result[0].l}*/
-        );
+        callback("stockData", body);
       } else {
         console.log("issue!");
         callback("stockData", "external source error");
@@ -30,7 +26,7 @@ function StockHandler() {
     });
   };
 
-  this.loadLikes = function(stock, like, ip, callback) {
+  this.handleLikes = function(stock, like, ip, callback) {
     MongoClient.connect(
       CONNECTION_STRING,
       function(err, db) {
