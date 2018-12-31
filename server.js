@@ -1,5 +1,7 @@
 "use strict";
 
+require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const expect = require("chai").expect;
@@ -21,12 +23,19 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      ],
       scriptSrc: [
         "'self'",
         "'unsafe-inline'",
         "'unsafe-eval'",
-        "https://code.jquery.com/jquery-2.2.1.min.js"
+        "https://code.jquery.com/jquery-2.2.1.min.js",
+        "https://code.jquery.com/jquery-3.3.1.slim.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js",
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
       ],
       imgSrc: ["'self'", "https://hyperdev.com/favicon-app.ico"]
     }
