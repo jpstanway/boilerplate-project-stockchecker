@@ -26,9 +26,9 @@ module.exports = function(app) {
       // process and compare multiple stocks
       const stockData = [];
       const price1 = stockPrices.getPrice(stock[0]);
-      const likes1 = stockPrices.handleLikes(stock[0]);
+      const likes1 = stockPrices.handleLikes(stock[0], like, ip);
       const price2 = stockPrices.getPrice(stock[1]);
-      const likes2 = stockPrices.handleLikes(stock[1]);
+      const likes2 = stockPrices.handleLikes(stock[1], like, ip);
 
       price1
         .then(priceData1 => {
