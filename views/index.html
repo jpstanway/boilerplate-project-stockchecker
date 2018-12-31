@@ -153,7 +153,31 @@
           <button type="submit" class="btn btn-info">Get Price!</button>
         </div>
       </form>
-      <code id="jsonResult"></code>
+      <!--<code id="jsonResult"></code>-->
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Price</th>
+            <th scope="col">Likes</th>
+          </tr>
+        </thead>
+        <tbody id="jsonResult">
+          <tr>
+            <th scope="row">1</th>
+            <td id="stock1"></td>
+            <td id="price1"></td>
+            <td id="likes1"></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td id="stock2"></td>
+            <td id="price2"></td>
+            <td id="likes2"></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <hr style="margin: 50px; margin-top: 200px" />
     <!-- Your web-app is https, so your scripts need to be too -->
@@ -185,7 +209,14 @@
             type: "get",
             data: $("#testForm").serialize(),
             success: function(data) {
-              $("#jsonResult").text(JSON.stringify(data));
+              //$("#jsonResult").text(JSON.stringify(data));
+              $("#stock1").text(data.stockData[0].stock.toUpperCase());
+              $("#price1").text(data.stockData[0].price);
+              $("#likes1").text(data.stockData[0].rel_likes);
+
+              $("#stock2").text(data.stockData[1].stock.toUpperCase());
+              $("#price2").text(data.stockData[1].price);
+              $("#likes2").text(data.stockData[1].rel_likes);
             }
           });
           e.preventDefault();
@@ -196,7 +227,10 @@
             type: "get",
             data: $("#testForm2").serialize(),
             success: function(data) {
-              $("#jsonResult").text(JSON.stringify(data));
+              //$("#jsonResult").text(JSON.stringify(data));
+              $("#stock1").text(data.stockData.stock.toUpperCase());
+              $("#price1").text(data.stockData.price);
+              $("#likes1").text(data.stockData.likes);
             }
           });
           e.preventDefault();
