@@ -17,6 +17,7 @@ module.exports = function(app) {
   var stockPrices = new StockHandler();
 
   app.route("/api/stock-prices").get(function(req, res) {
+    expect(req.query).to.be.an("object");
     const stock = req.query.stock;
     const like = req.query.like || false;
     const ip = req.connection.remoteAddress;
