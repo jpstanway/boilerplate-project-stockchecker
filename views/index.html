@@ -22,67 +22,11 @@
   </head>
   <body>
     <header id="header"><h1>Nasdaq Stock Price Checker</h1></header>
-    <!--<div id="userstories" style="margin-left: 5%; margin-top: 5%">
-      <h3>User Stories</h3>
-      <ol>
-        <li>
-          Set the content security policies to only allow loading of scripts and
-          css from your server.
-        </li>
-        <li>
-          I can <b>GET</b> <code>/api/stock-prices</code> with form data
-          containing a Nasdaq <i>stock</i> ticker and recieve back an object
-          <i>stockData</i>.
-        </li>
-        <li>
-          In <i>stockData</i>, I can see the <i>stock</i>(string, the ticker),
-          <i>price</i>(decimal in string format), and <i>likes</i>(int).
-        </li>
-        <li>
-          I can also pass along field <i>like</i> as <b>true</b>(boolean) to
-          have my like added to the stock(s). Only 1 like per ip should be
-          accepted.
-        </li>
-        <li>
-          If I pass along 2 stocks, the return object will be an array with both
-          stock's info but instead of <i>likes</i>, it will display
-          <i>rel_likes</i>(the difference between the likes on both) on both.
-        </li>
-        <li>
-          A good way to receive current price is the following external
-          API(replacing 'GOOG' with your stock):
-          <code>https://finance.google.com/finance/info?q=NASDAQ%3aGOOG</code>
-        </li>
-        <li>All 5 functional tests are complete and passing.</li>
-      </ol>
-      <h3>Example usage:</h3>
-      <code>/api/stock-prices?stock=goog</code><br />
-      <code>/api/stock-prices?stock=goog&amp;like=true</code><br />
-      <code>/api/stock-prices?stock=goog&amp;stock=msft</code><br />
-      <code>/api/stock-prices?stock=goog&amp;stock=msft&amp;like=true</code
-      ><br />
-      <h3>Example return:</h3>
-      <code>{"stockData":{"stock":"GOOG","price":"786.90","likes":1}}</code
-      ><br />
-      <code
-        >{"stockData":[{"stock":"MSFT","price":"62.30","rel_likes":-1},{"stock":"GOOG","price":"786.90","rel_likes":1}]}</code
-      >
-    </div>-->
     <hr style="margin: 50px" />
     <div class="container">
       <div id="testui" style="margin-left: 5%">
-        <!--<h2 style="text-align: left">Front-End:</h2>-->
         <h5>Get single price and total likes</h5>
         <form id="testForm2" class="">
-          <!--<input
-          type="text"
-          name="stock"
-          placeholder="goog"
-          style="width: 100px"
-          required=""
-        />
-        <input type="checkbox" name="like" value="true" /> Like?<br />
-        <button type="submit">Get Price!</button>-->
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <div class="input-group-text">
@@ -108,22 +52,6 @@
         </form>
         <h5>Compare and get relative likes</h5>
         <form id="testForm" class="">
-          <!--<input
-          type="text"
-          name="stock"
-          placeholder="goog"
-          style="width: 100px"
-          required=""
-        />
-        <input
-          type="text"
-          name="stock"
-          placeholder="msft"
-          style="width: 100px"
-          required=""
-        />
-        <input type="checkbox" name="like" value="true" /> Like both?<br />
-        <button type="submit">Get Price!</button>-->
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <div class="input-group-text">
@@ -154,7 +82,6 @@
             <button type="submit" class="btn btn-info">Get Price!</button>
           </div>
         </form>
-        <!--<code id="jsonResult"></code>-->
       </div>
       <table id="stock-table" class="table">
         <thead class="thead-light">
@@ -211,7 +138,6 @@
             type: "get",
             data: $("#testForm").serialize(),
             success: function(data) {
-              //$("#jsonResult").text(JSON.stringify(data));
               $("#stock1").text(data.stockData[0].stock.toUpperCase());
               $("#price1").text(data.stockData[0].price);
               $("#likes1").text(data.stockData[0].rel_likes);
@@ -239,7 +165,6 @@
             type: "get",
             data: $("#testForm2").serialize(),
             success: function(data) {
-              //$("#jsonResult").text(JSON.stringify(data));
               $("#stock1").text(data.stockData.stock.toUpperCase());
               $("#price1").text(data.stockData.price);
               $("#likes1").text(data.stockData.likes);
