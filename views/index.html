@@ -160,17 +160,17 @@
             <th scope="col">#</th>
             <th scope="col">Stock</th>
             <th scope="col">Price</th>
-            <th scope="col">Likes</th>
+            <th scope="col" id="likes-col">Likes</th>
           </tr>
         </thead>
         <tbody id="jsonResult">
-          <tr>
+          <tr id="row-1" class="hide">
             <th scope="row">1</th>
             <td id="stock1"></td>
             <td id="price1"></td>
             <td id="likes1"></td>
           </tr>
-          <tr>
+          <tr id="row-2" class="hide">
             <th scope="row">2</th>
             <td id="stock2"></td>
             <td id="price2"></td>
@@ -217,6 +217,15 @@
               $("#stock2").text(data.stockData[1].stock.toUpperCase());
               $("#price2").text(data.stockData[1].price);
               $("#likes2").text(data.stockData[1].rel_likes);
+
+              // show both rows
+              $("#row-1, #row-2").removeClass("hide");
+
+              // change like col text
+              $("#likes-col").text("Rel Likes");
+
+              // clear input
+              $(".form-control").val("");
             }
           });
           e.preventDefault();
@@ -231,6 +240,16 @@
               $("#stock1").text(data.stockData.stock.toUpperCase());
               $("#price1").text(data.stockData.price);
               $("#likes1").text(data.stockData.likes);
+
+              // show first row but hide second
+              $("#row-1").removeClass("hide");
+              $("#row-2").addClass("hide");
+
+              // change like col back
+              $("#likes-col").text("Likes");
+
+              // clear input
+              $(".form-control").val("");
             }
           });
           e.preventDefault();

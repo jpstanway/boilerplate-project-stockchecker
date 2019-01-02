@@ -8,6 +8,10 @@
   margin: 0% 1%;
 }
 
+.hide {
+  display: none;
+}
+
 #header {
   text-align: center;
   margin-top: 5%;
