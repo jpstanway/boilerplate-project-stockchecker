@@ -224,8 +224,9 @@
               // change like col text
               $("#likes-col").text("Rel Likes");
 
-              // clear input
+              // clear inputs
               $(".form-control").val("");
+              $("input[type=checkbox]").removeAttr("checked");
             }
           });
           e.preventDefault();
@@ -248,8 +249,9 @@
               // change like col back
               $("#likes-col").text("Likes");
 
-              // clear input
+              // clear inputs
               $(".form-control").val("");
+              $("input[type=checkbox]").removeAttr("checked");
             }
           });
           e.preventDefault();
