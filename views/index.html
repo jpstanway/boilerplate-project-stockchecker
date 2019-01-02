@@ -69,11 +69,12 @@
       >
     </div>-->
     <hr style="margin: 50px" />
-    <div id="testui" style="margin-left: 5%" class="container">
-      <!--<h2 style="text-align: left">Front-End:</h2>-->
-      <h3>Get single price and total likes</h3>
-      <form id="testForm2" class="">
-        <!--<input
+    <div class="container">
+      <div id="testui" style="margin-left: 5%">
+        <!--<h2 style="text-align: left">Front-End:</h2>-->
+        <h5>Get single price and total likes</h5>
+        <form id="testForm2" class="">
+          <!--<input
           type="text"
           name="stock"
           placeholder="goog"
@@ -82,32 +83,32 @@
         />
         <input type="checkbox" name="like" value="true" /> Like?<br />
         <button type="submit">Get Price!</button>-->
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-              <label
-                >Like?
-                <input
-                  type="checkbox"
-                  name="like"
-                  value="true"
-                  aria-label="Checkbox for following text input"
-              /></label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <label
+                  >Like?
+                  <input
+                    type="checkbox"
+                    name="like"
+                    value="true"
+                    aria-label="Checkbox for following text input"
+                /></label>
+              </div>
             </div>
+            <input
+              type="text"
+              name="stock"
+              placeholder="goog"
+              class="form-control"
+              aria-label="Text input with checkbox"
+            />
+            <button type="submit" class="btn btn-info">Get Price!</button>
           </div>
-          <input
-            type="text"
-            name="stock"
-            placeholder="goog"
-            class="form-control"
-            aria-label="Text input with checkbox"
-          />
-          <button type="submit" class="btn btn-info">Get Price!</button>
-        </div>
-      </form>
-      <h3>Compare and get relative likes</h3>
-      <form id="testForm" class="">
-        <!--<input
+        </form>
+        <h5>Compare and get relative likes</h5>
+        <form id="testForm" class="">
+          <!--<input
           type="text"
           name="stock"
           placeholder="goog"
@@ -123,38 +124,39 @@
         />
         <input type="checkbox" name="like" value="true" /> Like both?<br />
         <button type="submit">Get Price!</button>-->
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-              <label
-                >Like both?
-                <input
-                  type="checkbox"
-                  name="like"
-                  value="true"
-                  aria-label="Checkbox for following text input"
-              /></label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <label
+                  >Like both?
+                  <input
+                    type="checkbox"
+                    name="like"
+                    value="true"
+                    aria-label="Checkbox for following text input"
+                /></label>
+              </div>
             </div>
+            <input
+              type="text"
+              name="stock"
+              placeholder="goog"
+              class="form-control"
+              aria-label="Text input with checkbox"
+            />
+            <input
+              type="text"
+              name="stock"
+              placeholder="msft"
+              class="form-control"
+              aria-label="Text input with checkbox"
+            />
+            <button type="submit" class="btn btn-info">Get Price!</button>
           </div>
-          <input
-            type="text"
-            name="stock"
-            placeholder="goog"
-            class="form-control"
-            aria-label="Text input with checkbox"
-          />
-          <input
-            type="text"
-            name="stock"
-            placeholder="msft"
-            class="form-control"
-            aria-label="Text input with checkbox"
-          />
-          <button type="submit" class="btn btn-info">Get Price!</button>
-        </div>
-      </form>
-      <!--<code id="jsonResult"></code>-->
-      <table class="table">
+        </form>
+        <!--<code id="jsonResult"></code>-->
+      </div>
+      <table id="stock-table" class="table">
         <thead class="thead-light">
           <tr>
             <th scope="col">#</th>

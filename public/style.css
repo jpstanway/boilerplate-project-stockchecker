@@ -1,5 +1,5 @@
 .container {
-  max-width: 500px;
+  max-width: 750px;
   margin: auto !important;
 }
 
@@ -15,4 +15,9 @@
 #header {
   text-align: center;
   margin-top: 5%;
+}
+
+#testui {
+  width: 70%;
+  margin: auto !important;
 }
